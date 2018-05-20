@@ -117,7 +117,8 @@ ns({
 
         start_record() {
           this.recording = [];
-          $('.index').click(this.stop_record);
+          // No longer updating mouse moves
+          // $('.index').click(this.stop_record);
           return $(document).mousemove((e) => {
             return this.recording.push({
               x: e.pageX,
@@ -129,7 +130,7 @@ ns({
         stop_record() {
           $(document).off('mousemove');
           return $.ajax({
-            url: '/mouses',
+            url: '/mouses.json',
             type: 'post',
             data: JSON.stringify({recording: this.recording}),
             contentType: "application/json",
