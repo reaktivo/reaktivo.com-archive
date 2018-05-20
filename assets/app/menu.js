@@ -100,7 +100,7 @@ ns({
         if (Modernizr.touch) {
           this.close();
         }
-        return page($(e.currentTarget).attr('href'));
+        return page('/' + $(e.currentTarget).attr('href'));
       }
 
       touchstart(e) {

@@ -15,7 +15,7 @@ ns({
         this.menu = new App.Menu($('#list'));
         this.body = $('body');
         this.content = $("#content");
-        page('/:page', this.load);
+        page('/:page.html', this.load);
         page('/', this.root);
         page.start({
           dispatch: false
@@ -34,11 +34,11 @@ ns({
       load(ctx) {
         var id;
         console.log('load');
-        id = ctx.path.substr(1);
+        id = ctx.path.substr(1).split('.')[0];
         if (id === this.body.attr('id')) {
           return;
         }
-        return $.get(id).done((data) => {
+        return $.get(ctx.path).done((data) => {
           var html;
           html = $("<div>").append($.parseHTML(data));
           this.content.html(html.find("#content").html());
