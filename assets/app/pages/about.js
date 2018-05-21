@@ -5,7 +5,7 @@ ns({
     Pages: {
       about: class {
         constructor() {
-          $.get('/mouses', (movements) => {
+          $.get('/mouses.json', (movements) => {
             return this.mouses = new App.Mouses($('#mouses'), movements);
           });
         }

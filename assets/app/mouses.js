@@ -130,7 +130,7 @@ ns({
         stop_record() {
           $(document).off('mousemove');
           return $.ajax({
-            url: '/mouses.json',
+            url: '/mouses',
             type: 'post',
             data: JSON.stringify({recording: this.recording}),
             contentType: "application/json",
